@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// 友链数据：在这里添加/修改朋友的博客
+const friends = [
+  {
+    name: 'Astro 官方文档',
+    url: 'https://docs.astro.build/zh-cn/',
+    description: '构建本博客所用的框架',
+  },
+  {
+    name: 'MDN Web Docs',
+    url: 'https://developer.mozilla.org/zh-CN/',
+    description: '前端开发的百科全书',
+  },
+];
+---
+
+<BaseLayout title="友链" description="友情链接">
+  <h1>友情链接</h1>
+  <p class="muted">一些常逛的网站和朋友们的博客。</p>
+
+  <div class="friends-grid">
+    {
+      friends.map((friend) => (
+        <a class="card friend" href={friend.url} target="_blank" rel="noopener noreferrer">
+          <strong>{friend.name}</strong>
+          <span class="muted">{friend.description}</span>
+        </a>
+      ))
+    }
+  </div>
+
+  <section class="prose" style="margin-top: 2rem;">
+    <h2>交换友链</h2>
+    <p>如果你想交换友链，欢迎通过 GitHub 联系我，附上你的站点名称、链接和一句简介。</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .friend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: var(--text);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .friend:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+</style>

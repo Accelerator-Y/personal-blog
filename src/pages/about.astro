@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AUTHOR, GITHUB_URL } from '../consts';
+---
+
+<BaseLayout title="关于" description="关于我">
+  <article class="prose">
+    <h1>关于我</h1>
+    <p>你好，我是 {AUTHOR}。这个博客用来记录我的学习经历、生活琐事与经验总结。</p>
+
+    <h2>我在做什么</h2>
+    <ul>
+      <li>持续学习编程与软件开发</li>
+      <li>记录和复盘学过的知识</li>
+      <li>分享踩坑经验，帮助他人少走弯路</li>
+    </ul>
+
+    <h2>联系我</h2>
+    <p>
+      欢迎在 <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+      上找到我，或通过友链页面与我互换链接。
+    </p>
+
+    <blockquote>
+      <p>把这里当成你的自留地，随时回来修改这一页的内容吧。</p>
+    </blockquote>
+  </article>
+</BaseLayout>
